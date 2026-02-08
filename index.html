@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E-VIBE | Solar Electric Bicycle</title>
+  <link rel="stylesheet" href="STYLE.css">
+</head>
+
+<!-- NAVBAR -->
+<nav>
+  <h2>E-VIBE</h2>
+  <ul>
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#why">Benefits</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#product">Product</a></li>
+  </ul>
+</nav>
+
+
+
+
+
+<!-- MAIN HERO -->
+<section id="hero" class="hero">
+  <h1>Discover the New E-VIBE</h1>
+  <p>Eco-Friendly, Healthy, and Cost-Effective Solar Electric Bicycle</p>
+  <button onclick="scrollToSection('product')">Explore E-VIBE</button>
+</section>
+
+<!-- WHY E-VIBE -->
+<section id="why" class="why">
+  <h2>Why Choose E-VIBE?</h2>
+  <div class="cards">
+    <div class="card">🌱<h3>Zero Emission</h3><p>No fuel, no pollution — cleaner air.</p></div>
+    <div class="card">💰<h3>Low Running Cost</h3><p>Minimal maintenance & energy savings.</p></div>
+    <div class="card">❤️<h3>Health Friendly</h3><p>Pedal & ride to stay active.</p></div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section id="impact" class="impact">
+  <h2>Monthly CO₂ Impact</h2>
+  <input type="number" id="distance" placeholder="Daily distance (km)">
+  <button onclick="calculateImpact()">Calculate</button>
+  <div id="impactResult"></div>
+</section>
+
+
+
+
+<!--PRODUCT-->
+<section id="product" class="product-section">
+  <button onclick="scrollToSection('product1')">
+    🛒 View Cycle
+  </button>
+</section>
+
+
+
+<!-- PRODUCT PROMO -->
+<section id="product1" class="product-section">
+  <h2>E-VIBE Cargo</h2>
+  <div class="product-card">
+    <img src="evibe-product.jpg" alt="E-VIBE Bicycle" class="product-img">
+    <div class="product-info">
+      <h3>E-VIBE Cargo – ₹59,999</h3>
+<p class="product-description">
+  Solar Charge Pro-Delivery is engineered for high-usage riders such as delivery professionals.
+  With manual pedaling, electric assist, and solar charging, it lowers operational costs
+  while ensuring durability and all-day performance.
+</p>
+
+      <button onclick="addToCart('E-VIBE Solar Electric Bicycle', 2999)">
+    🛒 Purchase
+  </button>
+     <!-- <button onclick="knowMore()">Know More</button> -->
+    </div>
+  </div>
+</section>
+
+<section id="product2" class="product-section">
+  <h2>E-VIBE Zen</h2>
+  <div class="product-card">
+    <img src="bicycle1.jpg" alt="E-VIBE Bicycle" class="product-img">
+    <div class="product-info">
+      <h3>E-VIBE Zen - ₹38,999)</h3>
+      <p class="product-description">
+	  Solar Charge Gen-Z is built for students and young commuters who want stylish, affordable, 
+	  and sustainable mobility. It blends manual cycling, electric assist, and solar charging support 
+	  to reduce daily travel expenses and carbon footprint.
+	  </p>
+      <button onclick="addToCart('E-VIBE Lite', 2499)">
+  🛒 Purchase
+</button>
+
+     <!-- <button onclick="knowMore()">Know More</button> -->
+    </div>
+  </div>
+</section>
+
+
+
+
+<section id="product3" class="product-section">
+  <h2>E-VIBE Alfa</h2>
+  <div class="product-card">
+    <img src="bicycle2.jpg" alt="E-VIBE Bicycle" class="product-img">
+    <div class="product-info">
+      <h3>E-VIBE Alfa - ₹15,999</h3>
+      <p class="product-description">
+	  Solar Charge Gen-Alpha is a safe, lightweight, and eco-friendly bicycle designed 
+	  to introduce young riders to electric mobility. With manual pedaling, low-power 
+	  electric assist, and solar top-up charging, it makes everyday rides fun, educational, 
+	  and sustainable.
+	  </p>
+      <button onclick="addToCart('E-VIBE Lite', 1999)">
+  🛒 Purchase
+</button>
+
+     <!-- <button onclick="knowMore()">Know More</button> -->
+    </div>
+  </div>
+</section>
+<!--
+<div class="tabs">
+  <button onclick="showTab('model1')">E-VIBE Lite</button>
+  <button onclick="showTab('model2')">E-VIBE Pro</button>
+</div>
+
+<div class="buy-now-wrapper">
+  <button onclick="addToCart('E-VIBE Solar Electric Bicycle', 2999)">
+    🛒 Buy Now
+  </button>
+</div>
+-->
+
+<!-- CART MODAL -->
+<div id="cart-modal" class="cart-modal">
+  <h3>Your Cart</h3>
+  <ul id="cart-items"></ul>
+  <p><b>Total: ₹<span id="cart-total">0</span></b></p>
+
+  <button onclick="placeOrder()">Place Order</button>
+  <button onclick="toggleCart()">Close</button>
+</div>
+
+
+<div id="model1" class="tab-content ">
+  <p>Range: 40km | Weight: 20kg | Price: ₹1,999</p>
+</div>
+
+<div id="model2" class="tab-content ">
+  <p>Range: 60km | Weight: 22kg | Price: ₹2,999</p>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div id="checkout-modal" class="checkout-modal">
+  <h3>Delivery Address</h3>
+
+  <input type="text" id="name" placeholder="Full Name">
+  <input type="text" id="phone" placeholder="Phone Number">
+  <input type="text" id="address" placeholder="Address">
+  <input type="text" id="city" placeholder="City">
+  <input type="text" id="pincode" placeholder="Pincode">
+
+  <button onclick="confirmPurchase()">Confirm Purchase</button>
+  <button onclick="closeCheckout()">Cancel</button>
+</div>
+
+<!-- FEATURES -->
+<section class="features">
+  <h2>Key Features</h2>
+  <div class="feature-grid">
+    <div class="feature">🔋 Long Battery Range</div>
+    <div class="feature">☀️ Solar Assisted Charging</div>
+    <div class="feature">⚡ Electric + Pedal Mode</div>
+    <div class="feature">🛡 Lightweight Alloy Frame</div>
+  </div>
+</section>
+<!-- IMPACT STATS -->
+<section class="stats">
+  <div class="stat-box">
+    <h3 class="counter" data-target="1200">0</h3>
+    <p>Happy Riders</p>
+  </div>
+  <div class="stat-box">
+    <h3 class="counter" data-target="35000">0</h3>
+    <p>Kg CO₂ Saved</p>
+  </div>
+  <div class="stat-box">
+    <h3 class="counter" data-target="18">0</h3>
+    <p>Cities Covered</p>
+  </div>
+</section>
+
+<!-- SPECIFICATIONS -->
+<section class="specs">
+  <h2>Technical Specifications</h2>
+  <table>
+    <tr><td>Battery Range</td><td>60 km</td></tr>
+    <tr><td>Charging Time</td><td>4 hours</td></tr>
+    <tr><td>Top Speed</td><td>25 km/h</td></tr>
+    <tr><td>Weight</td><td>22 kg</td></tr>
+  </table>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <h2>WHAT RIDERS SAY</h2>
+  <div class="testimonial-box">
+    <p>"E-VIBE changed my daily commute. Zero fuel cost!"</p>
+    <span>- College Student</span>
+  </div>
+  <div class="testimonial-box">
+    <p>"Healthy, eco-friendly and affordable."</p>
+    <span>- Office Commuter</span>
+  </div>
+</section>
+
+
+<!-- FAQ -->
+<section class="faq">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item" onclick="toggleFAQ(this)">
+    <h4>Is E-VIBE fully electric?</h4>
+    <p>It supports both electric and pedal-assisted modes.</p>
+  </div>
+
+  <div class="faq-item" onclick="toggleFAQ(this)">
+    <h4>Does it need petrol?</h4>
+    <p>No. E-VIBE runs on electric and solar energy.</p>
+  </div>
+</section>
+
+<!-- 
+<section class="contact">
+  <h2>Get in Touch</h2>
+  <input type="text" placeholder="YOUR NAME">
+  <input type="email" placeholder="YOUR EMAIL">
+  <button onclick="submitForm()">Submit</button>
+</section> CONTACT -->
+
+<!-- CART MODAL -->
+<div id="cart-modal" class="cart-modal">
+  <h3>Your Cart</h3>
+  <ul id="cart-items"></ul>
+  <p><b>Total: ₹<span id="cart-total">0</span></b></p>
+
+  <button onclick="openCheckout()">Proceed to Checkout</button>
+  <button onclick="toggleCart()">Close</button>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 E-VIBE | Sustainable Mobility for a Better Future</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
